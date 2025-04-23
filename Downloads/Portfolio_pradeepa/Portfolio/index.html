@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>My Portfolio</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+      <div class="container">
+        <a class="navbar-brand" href="#home-section">Pradeepa Raja</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="oi oi-menu"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="ftco-nav">
+          <ul class="navbar-nav nav ml-auto">
+            <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
+            <li class="nav-item"><a href="#resume-section" class="nav-link"><span>Resume</span></a></li>
+            <li class="nav-item"><a href="#skills-section" class="nav-link"><span>Skills</span></a></li>
+            <li class="nav-item"><a href="#projects-section" class="nav-link"><span>Projects</span></a></li>
+            <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section class="hero-wrap js-fullheight">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text js-fullheight justify-content-center align-items-center">
+          <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-center">
+            <div class="text text-center">
+              <span class="subheading">Hey! I am</span>
+              <h1>Pradeepa Raja</h1>
+              <h2>I'm a 
+                <span class="txt-rotate" data-period="2000"
+                  data-rotate='[ "Data Analyst.", "SQL Enthusiast.", "Tableau Lover.", "Python Learner." ]'>
+                </span>
+              </h2>
+              <p>Passionate about exploring data and uncovering insights that drive real-world impact.
+				On a journey to master SQL, Python, and Tableau while turning raw data into meaningful stories.</p>
+              
+              <!-- Add social links -->
+              <div class="social-links mb-4">
+                <a href="https://www.linkedin.com/in/rpradeeparaja/" target="_blank" class="social-icon">
+                  <i class="fab fa-linkedin fa-2x"></i>
+                </a>
+                <a href="https://github.com/pradeeparaja" target="_blank" class="social-icon">
+                  <i class="fab fa-github fa-2x"></i>
+                </a>
+                <a href="images\Pradeepa_Raja_Resume.pdf" class="social-icon" download>
+                  <i class="fas fa-file-download fa-2x"></i>
+                </a>
+              </div>
+
+              <p class="mt-4">
+                <a href="#contact-section" class="btn btn-primary py-3 px-4">Get in Touch</a>
+                <a href="#projects-section" class="btn btn-white btn-outline-white py-3 px-4 ml-3">View Projects</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Add this script for text rotation -->
+    <script>
+      var TxtRotate = function(el, toRotate, period) {
+        this.toRotate = toRotate;
+        this.el = el;
+        this.loopNum = 0;
+        this.period = parseInt(period, 10) || 2000;
+        this.txt = '';
+        this.tick();
+        this.isDeleting = false;
+      };
+    
+      TxtRotate.prototype.tick = function() {
+        var i = this.loopNum % this.toRotate.length;
+        var fullTxt = this.toRotate[i];
+    
+        if (this.isDeleting) {
+          this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+          this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
+    
+        this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+    
+        var that = this;
+        var delta = 300 - Math.random() * 100;
+    
+        if (this.isDeleting) { delta /= 2; }
+    
+        if (!this.isDeleting && this.txt === fullTxt) {
+          delta = this.period;
+          this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === '') {
+          this.isDeleting = false;
+          this.loopNum++;
+          delta = 500;
+        }
+    
+        setTimeout(function() {
+          that.tick();
+        }, delta);
+      };
+    
+      window.onload = function() {
+        var elements = document.getElementsByClassName('txt-rotate');
+        for (var i=0; i<elements.length; i++) {
+          var toRotate = elements[i].getAttribute('data-rotate');
+          var period = elements[i].getAttribute('data-period');
+          if (toRotate) {
+            new TxtRotate(elements[i], JSON.parse(toRotate), period);
+          }
+        }
+      };
+    </script>
+    
+   
+
+    <!-- Resume Section -->
+    <section class="ftco-section ftco-no-pb" id="resume-section">
+      <div class="container">
+        <div class="row justify-content-center pb-5">
+          <div class="col-md-10 heading-section text-center ftco-animate">
+            <h2 class="mb-4">Resume</h2>
+          </div>
+        </div>
+        <div class="row">
+          <!-- Education Column -->
+          <div class="col-md-6">
+            <h3 class="text-center mb-4">Education</h3>
+            <div class="resume-wrap ftco-animate">
+              <span class="date">2019-2022</span>
+              <h2>Bachelor's Degree</h2>
+              <span class="position">KSR College of Arts and Science, Tamil Nadu</span>
+              <p class="mt-4">Built a strong foundation in programming, databases, and problem-solving. </p>
+            </div>
+            <div class="resume-wrap ftco-animate">
+              <span class="date">2023-Present</span>
+              <h2>Master's Degree</h2>
+              <span class="position">Scaler Neovarsity, Woolf University (Europe)</span>
+              <p class="mt-4">Pursuing advanced studies in Artificial Intelligence and Machine Learning with a focus on data science applications. 
+				Working on real-world projects covering deep learning, data engineering, and model deployment. </p>
+            </div>
+          </div>
+          
+          <!-- Experience Column -->
+          <div class="col-md-6">
+            <h3 class="text-center mb-4">Experience</h3>
+            <div class="resume-wrap ftco-animate">
+              <span class="date">2022-2023</span>
+              <h2>Programmer – Cybersecurity Domain</h2>
+              <span class="position">Tata Consultancy Services (TCS), Chennai</span>
+              
+              <ul class="mt-4">
+                <li>Led ISIM (IBM Security Identity Manager) and ISAM (IBM Security Access Manager) projects, boosting team efficiency by 15% and achieving a 
+                    90% incident resolution rate.</li>
+
+                <li>Implemented user provisioning and role-based access control (RBAC) during cybersecurity incidents, 
+                    ensuring strict compliance with organizational security policies.</li>
+
+                <li>Conducted regular system health checks and monitored performance using built-in BI dashboards,
+                     resulting in an 85% improvement in uptime and early detection of security threats.</li>
+
+                <li>Trained team members on incident handling protocols, significantly improving team preparedness and incident response effectiveness.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="ftco-section" id="skills-section">
+      <div class="container">
+        <div class="row justify-content-center pb-5">
+          <div class="col-md-12 heading-section text-center ftco-animate">
+            <h2 class="mb-4">Skills & Tools</h2>
+          </div>
+        </div>
+        
+        <!-- Programming Skills -->
+        <div class="row mb-5">
+          <div class="col-12">
+            <h3 class="text-center mb-4">Skills</h3>
+          </div>
+          <div class="col-md-4 text-center mb-4">
+            <div class="skills-wrap ftco-animate">
+              <div class="icon-floating">
+                <i class="fas fa-chart-line fa-3x"></i>
+              </div>
+              <h4 class="mt-3">Data Analysis</h4>
+            </div>
+          </div>
+          <div class="col-md-4 text-center mb-4">
+            <div class="skills-wrap ftco-animate">
+              <div class="icon-floating">
+                <i class="fas fa-broom fa-3x"></i>
+              </div>
+              <h4 class="mt-3">Data Cleaning</h4>
+            </div>
+          </div>
+          <div class="col-md-4 text-center mb-4">
+            <div class="skills-wrap ftco-animate">
+              <div class="icon-floating">
+                <i class="fas fa-database fa-3x"></i>
+              </div>
+              <h4 class="mt-3">SQL for Analytics</h4>
+            </div>
+          </div>
+          <div class="col-md-4 text-center mb-4">
+            <div class="skills-wrap ftco-animate">
+              <div class="icon-floating">
+                <i class="fas fa-calculator fa-3x"></i>
+              </div>
+              <h4 class="mt-3">Statistical Analysis</h4>
+            </div>
+          </div>
+          <div class="col-md-4 text-center mb-4">
+            <div class="skills-wrap ftco-animate">
+              <div class="icon-floating">
+                <i class="fas fa-book-reader fa-3x"></i>
+              </div>
+              <h4 class="mt-3">Data Storytelling</h4>
+            </div>
+          </div>
+          <div class="col-md-4 text-center mb-4">
+            <div class="skills-wrap ftco-animate">
+              <div class="icon-floating">
+                <i class="fas fa-cogs fa-3x"></i>
+              </div>
+              <h4 class="mt-3">Feature Engineering</h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tools -->
+        <div class="row mt-5">
+          <div class="col-12">
+            <h3 class="text-center mb-4">Tools & Technologies</h3>
+          </div>
+          <div class="col-md-3 col-6 text-center mb-4">
+            <div class="tool-item ftco-animate">
+              <i class="fas fa-database fa-3x mb-2"></i>
+              <h5>SQL</h5>
+              <p class="small">MySQL, SQL Server, Bigquery, Snowflake</p>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 text-center mb-4">
+            <div class="tool-item ftco-animate">
+              <i class="fab fa-python fa-3x mb-2"></i>
+              <h5>Python</h5>
+              <p class="small">Pandas, NumPy, Matplotlib, Scikit-learn</p>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 text-center mb-4">
+            <div class="tool-item ftco-animate">
+              <i class="fas fa-chart-bar fa-3x mb-2"></i>
+              <h5>Tableau</h5>
+              <p class="small">Dashboards, Actions, Advanced Analytics</p>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 text-center mb-4">
+            <div class="tool-item ftco-animate">
+              <i class="fas fa-book-open fa-3x mb-2"></i>
+              <h5>Jupyter Notebook</h5>
+              <p class="small">Analysis, Visualization, Documentation</p>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 text-center mb-4">
+            <div class="tool-item ftco-animate">
+              <i class="fas fa-file-excel fa-3x mb-2"></i>
+              <h5>Excel</h5>
+              <p class="small">Advanced topic, Dashboards</p>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 text-center mb-4">
+            <div class="tool-item ftco-animate">
+              <i class="fab fa-github fa-3x mb-2"></i>
+              <h5>Git & GitHub</h5>
+              <p class="small">Version Control, Collaboration</p>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 text-center mb-4">
+            <div class="tool-item ftco-animate">
+              <i class="fas fa-exchange-alt fa-3x mb-2"></i>
+              <h5>ETL</h5>
+              <p class="small">Data Pipeline Development</p>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 text-center mb-4">
+            <div class="tool-item ftco-animate">
+              <i class="fas fa-cloud fa-3x mb-2"></i>
+              <h5>Cloud Database</h5>
+              <p class="small">Snowflake Data Warehousing</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="ftco-section ftco-project" id="projects-section">
+      <div class="container">
+        <div class="row justify-content-center pb-5">
+          <div class="col-md-12 heading-section text-center ftco-animate">
+            <h2 class="mb-4">My Projects</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/financial-result.png);">
+              <div class="overlay"></div>
+              <div class="text text-center p-4">
+                <h3><a href="#" class="project-popup" data-title="" data-description="Fin360 Financial Analytics Dashboard is a 
+					self-designed project built to analyze and visualize core financial operations such as revenue trends, accounts receivables, 
+					and cost scenarios. Using tools like SQL for data extraction, Python for cleaning and transformation, and Tableau for interactive
+					 dashboarding, the project provides end-to-end insights into company performance. Key features include scenario-based revenue 
+					 projections, overdue receivable monitoring, and departmental expense breakdowns. This dashboard enables data-driven 
+					 decision-making 
+					for finance teams by simplifying complex metrics into intuitive visuals." data-link="https://public.tableau.com/app/profile/pradeepa.raja7155/viz/FIN360/MainDashboard">Fin Lens</a></h3>
+                <span>Financial Insights Dashboard</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/businesses-hr-analytics.png);">
+              <div class="overlay"></div>
+              <div class="text text-center p-4">
+                <h3><a href="#" class="project-popup" data-title="" data-description="HR Analytics Dashboard is a self-created 
+					Tableau project focused on exploring workforce patterns and employee performance. It visualizes key metrics such as 
+					attrition rates, department-wise performance, gender ratios, and income distribution. Data was processed using SQL and Excel 
+					before being brought into Tableau for interactive dashboards. Key features include filtering by department or job role, salary
+					 trend analysis, 
+					and diversity tracking. The dashboard empowers HR teams to make strategic workforce decisions based on clean, 
+					visualized data" data-link="https://public.tableau.com/app/profile/pradeepa.raja7155/viz/HRDash_17189870269500/HRSummary">PulseHR</a></h3>
+                <span>HR Analytics Dashboard</span>
+              </div>
+            </div>
+          </div>
+
+		  <div class="col-md-4">
+            <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/Top-Sales-Analytics-Software.png);">
+              <div class="overlay"></div>
+              <div class="text text-center p-4">
+                <h3><a href="#" class="project-popup" data-title="" data-description="This project is a self-designed Tableau dashboard
+					 built to analyze and visualize key sales trends across products, regions, and time periods. It offers a clear view of revenue 
+					 breakdowns, high-performing categories, and customer purchase behavior. Using interactive filters and drill-downs, stakeholders
+					  can quickly identify which products are driving growth and where optimizations are needed.
+					 The dashboard helps sales and strategy teams monitor KPIs, make faster decisions, and stay aligned with business goals." data-link="https://public.tableau.com/app/profile/pradeepa.raja7155/viz/salesanalysis_17201983517040/Dash_2">Sales Pulse Dashboard</a></h3>
+                <span>Real-time insights into your sales data</span>
+              </div>
+            </div>
+          </div>
+
+
+		  <div class="col-md-4">
+            <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/netflix_image.png);">
+              <div class="overlay"></div>
+              <div class="text text-center p-4">
+                <h3><a href="#" class="project-popup" data-title="" data-description="This project explores viewer behavior and content 
+					trends using the Netflix dataset. Leveraging Python for data cleaning, transformation, and exploratory analysis, the project 
+					uncovers patterns in genres, release timelines, ratings, and country-wise availability. Visualizations created with Matplotlib 
+					and Seaborn help identify what kind of content is most popular, when users are most engaged, and how Netflix's library varies
+					 globally. 
+					This project sharpens data storytelling skills while simulating real-world entertainment analytics." data-link="https://github.com/pradeeparaja/Netflix">Netflix Viewership Analysis</a></h3>
+                <span> Insights from Streaming Trends</span>
+              </div>
+            </div>
+          </div>
+
+
+
+		  <div class="col-md-4">
+            <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/CRM_Analytics.png);">
+              <div class="overlay"></div>
+              <div class="text text-center p-4">
+                <h3><a href="#" class="project-popup" data-title="" data-description="A data-driven project simulating a delivery company’s operations. It focuses on optimizing last-mile delivery through analysis of order patterns, delivery delays, and route efficiency using Python, Pandas, and data visualization tools." 
+					data-link="https://github.com/pradeeparaja/CRM-analysis">CRM Analytics</a></h3>
+                <span>Understanding Customer Behavior and Business Impact</span>
+              </div>
+            </div>
+          </div>
+
+
+
+		  <div class="col-md-4">
+            <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/Covid_Analytics.png);">
+              <div class="overlay"></div>
+              <div class="text text-center p-4">
+                <h3><a href="#" class="project-popup" data-title="" data-description="An end-to-end SQL project exploring global COVID-19 trends  analyzing confirmed cases, deaths, and vaccination progress. The project transforms raw data into actionable insights through structured queries and visual storytelling." data-link="https://github.com/pradeeparaja/PandemicDataExploration">PandemicLens</a></h3>
+                <span>COVID-19 Data Insights</span>
+              </div>
+            </div>
+          </div>
+
+
+
+
+		  <div class="col-md-4">
+            <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/E_commernce.png);">
+              <div class="overlay"></div>
+              <div class="text text-center p-4">
+                <h3><a href="#" class="project-popup" data-title="" data-description=" A deep-dive data case study analyzing order patterns, customer preferences, and delivery dynamics in the Brazilian e-commerce market. Built using Python and SQL to uncover actionable insights for strategy optimization." data-link="https://github.com/pradeeparaja/Target_CaseStudy">TargetPulse</a></h3>
+                <span>E-Commerce Trends & Customer Behavior</span>
+              </div>
+            </div>
+          </div>
+
+
+		  <div class="col-md-4">
+            <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/YULU_iamge.png);">
+              <div class="overlay"></div>
+              <div class="text text-center p-4">
+                <h3><a href="#" class="project-popup" data-title="" data-description=" This project explores urban transportation patterns using Yulu bike ride data. It focuses on understanding user demand, peak ride hours, popular routes, and seasonality trends. Using Python for data cleaning, EDA, and geospatial analysis, the project identifies high-demand zones and suggests operational strategies for optimizing fleet distribution." data-link="https://github.com/pradeeparaja/Yulu-Micro-Mobility-Demand-Analysis"> RideScope</a></h3>
+                <span>Micro-Mobility Demand Analysis for Yulu</span>
+              </div>
+            </div>
+          </div>
+
+
+		  <div class="col-md-4">
+            <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/LR_image.png);">
+              <div class="overlay"></div>
+              <div class="text text-center p-4">
+                <h3><a href="#" class="project-popup" data-title="" data-description=" This project demonstrates how linear regression can be used to predict sales based on advertising budgets. Using Python libraries like Pandas, Matplotlib, and Scikit-learn, the project walks through data preprocessing, model building, evaluation, and interpretation of results." 
+					data-link="https://github.com/pradeeparaja/Linear_Regression">TrendPredict</a></h3>
+                <span>Linear Regression on Sales Data</span>
+              </div>
+            </div>
+          </div>
+
+		  <div class="col-md-4">
+            <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/aerofit.png);">
+              <div class="overlay"></div>
+              <div class="text text-center p-4">
+                <h3><a href="#" class="project-popup" data-title="" data-description=" This case study dives into customer data for Aerofit, a fitness equipment brand, to uncover insights about product preferences, user demographics, and purchasing behavior. Using Python and visualization tools, it provides actionable recommendations to improve customer segmentation and marketing efforts." 
+					data-link="https://github.com/pradeeparaja/Linear_Regression">FitTrack</a></h3>
+                <span>Aerofit Customer Insights</span>
+              </div>
+            </div>
+          </div>
+
+		  <div class="col-md-4">
+            <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/Bot.png);">
+              <div class="overlay"></div>
+              <div class="text text-center p-4">
+                <h3><a href="#" class="project-popup" data-title="" data-description=" HireMate is a smart chatbot designed to streamline the resume screening process using NLP techniques. Built using Python and Streamlit, it can analyze resumes and answer queries based on candidate profiles. This project showcases the integration of chatbot technology with data parsing and natural language understanding to assist recruiters in making faster, more informed decisions." 
+					data-link="https://github.com/pradeeparaja/Linear_Regression">HireMate</a></h3>
+                <span>Resume Screening Chatbot</span>
+              </div>
+            </div>
+          </div>
+		  
+          <!-- Add more projects as needed -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="ftco-section contact-section" id="contact-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-md-7 heading-section text-center fade-up">
+            <h2 class="mb-4">Contact Me</h2>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-5">
+            <div class="img-about img" style="height: 300px;">
+              <div class="overlay"></div>
+              <img src="images/final-removebg-preview.png" class="img-fluid w-100 h-100" style="object-fit: contain; background: rgba(255, 255, 255, 0.05);" alt="Contact Image">
+            </div>
+            <div class="contact-info mt-4">
+              <h3 class="mb-4">Let's Connect</h3>
+              <ul class="about-info px-md-0 px-2">
+                <li class="d-flex">
+                  <span><i class="fas fa-envelope mr-2"></i></span>
+                  <span> rpradeeparaja@gmail.com</span>
+                </li>
+                <li class="d-flex">
+                  <span><i class="fas fa-phone mr-2"></i></span>
+                  <span> +91 9597783340</span>
+                </li>
+                <li class="d-flex">
+                  <span><i class="fas fa-map-marker-alt mr-2"></i></span>
+                  <span> India, Tamil Nadu</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-7 pl-md-5">
+            <form action="#" class="contact-form">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Your Name">
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" placeholder="Your Email">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Subject">
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" rows="7" placeholder="Message"></textarea>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">Send Message</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="glitter-container"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="ftco-footer ftco-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <p>Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+    <!-- Scripts -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/jquery.animateNumber.min.js"></script>
+    <script src="js/scrollax.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Project Popup Script -->
+    <script>
+      $(document).ready(function() {
+        $('.project-popup').magnificPopup({
+          type: 'inline',
+          closeBtnInside: true,
+          mainClass: 'mfp-fade',
+          removalDelay: 300,
+          callbacks: {
+            elementParse: function(item) {
+              var title = item.el.data('title');
+              var description = item.el.data('description');
+              var link = item.el.data('link');
+              
+              var content = 
+                '<div class="project-details">' +
+                  '<h2>' + title + '</h2>' +
+                  '<p>' + description + '</p>' +
+                  '<a href="' + link + '" class="btn-visit" target="_blank">Visit Project</a>' +
+                '</div>';
+              
+              item.src = content;
+            },
+            open: function() {
+              $('html').css('margin-right', 0);
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
